@@ -31,7 +31,7 @@ public:
   CDnsSeedOpts() : nThreads(96), nDnsThreads(4), nPort(53), mbox(NULL), ns(NULL), host(NULL), tor(NULL), fUseTestNet(false), fWipeBan(false), fWipeIgnore(false) {}
 
   void ParseCommandLine(int argc, char **argv) {
-    static const char *help = "Litecoin-seeder\n"
+    static const char *help = "Universalmolecule-seeder\n"
                               "Usage: %s -h <host> -n <ns> [-m <mbox>] [-t <threads>] [-p <port>]\n"
                               "\n"
                               "Options:\n"
@@ -342,8 +342,8 @@ extern "C" void* ThreadStats(void*) {
   } while(1);
 }
 
-static const string mainnet_seeds[] = {"dnsseed.litecointools.com", "dnsseed.litecoinpool.org", "dnsseed.ltc.xurious.com", ""};
-static const string testnet_seeds[] = {"testnet-seed.litecointools.com", ""};
+static const string mainnet_seeds[] = {"seed.universalmolecule.co.ve", ""};
+static const string testnet_seeds[] = {"testnet-seed.universalmolecule.co.ve", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
@@ -377,10 +377,10 @@ int main(int argc, char **argv) {
   bool fDNS = true;
   if (opts.fUseTestNet) {
       printf("Using testnet.\n");
-      pchMessageStart[0] = 0xfc;
-      pchMessageStart[1] = 0xc1;
-      pchMessageStart[2] = 0xb7;
-      pchMessageStart[3] = 0xdc;
+      pchMessageStart[0] = 0x0b;
+      pchMessageStart[1] = 0x11;
+      pchMessageStart[2] = 0x39;
+      pchMessageStart[3] = 0x38;
       seeds = testnet_seeds;
       fTestNet = true;
   }
